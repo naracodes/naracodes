@@ -1,4 +1,4 @@
-## Olá ! Eu sou a Nara Alencar.
+## Olá ! Eu sou a Edinara Alencar.
  
 - 👩‍🎓 Computação - UECE
 - 🌱 Estudando Java
