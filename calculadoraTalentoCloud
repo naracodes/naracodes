@@ -10,7 +10,6 @@
 //Trabalhe esse código em seu IDE, suba ele para sua conta no GitHub e compartilhe o link desse projeto no campo ao lado para que outros desenvolvedores possam analisá-lo.
 
 def calculadora(num1, num2, op):
-  res = 0
   if(op == 1):
     return num1 + num2
   elif(op==2):
@@ -19,6 +18,8 @@ def calculadora(num1, num2, op):
     return num1 * num2
   elif(op==4):
     return num1 / num2
+  else:
+    return 0
 
 def mostrarMenu():
   print("1. Soma")
