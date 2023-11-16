@@ -1,0 +1,44 @@
+def calculadora(num1, num2, op):
+  if(op == 1):
+    resultado = num1 + num2
+    nomeOperacao = "Soma"
+    return resultado, nomeOperacao
+  elif(op==2):
+    resultado = num1 - num2
+    nomeOperacao = "Subtração"
+    return resultado, nomeOperacao
+  elif(op ==3):
+    resultado = num1 * num2
+    nomeOperacao = "Multiplicação"
+    return resultado, nomeOperacao
+  elif(op==4):
+    resultado = num1 / num2
+    nomeOperacao = "Divisão"
+    return resultado, nomeOperacao
+  else:
+    return "Essa opção não existe"
+
+def mostrarMenu():
+  print("1. Soma")
+  print("2. Subtração")
+  print("3. Multiplicação")
+  print("4. Divisão")
+  print("0. Sair")
+
+def realizarOperacao(op):
+  num1 = int(input("Digite o primeiro número: "))
+  num2 = int(input("Digite o segundo número: "))
+  if(op != 4) and (num2 != 0):
+    resultado, nomeOperacao = calculadora(num1, num2, op)
+    print(f"O resultado da {nomeOperacao} é {str(resultado)}.")
+    print()
+  else:
+    print("Não é possível fazer divisão por zero.")
+
+while True:
+  mostrarMenu()
+  op = int(input("Digite o número correspondente a operação desejada: "))
+  if(op!=0):
+    realizarOperacao(op)
+  else:
+    break
