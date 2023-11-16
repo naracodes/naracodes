@@ -1,0 +1,73 @@
+## Calculadora que só aceita números pares.
+
+from logging import exception
+def calculadora(num1, num2, op):
+  if(op == 1):
+    resultado = num1 + num2
+    nomeOperacao = "Soma"
+    return resultado, nomeOperacao
+  elif(op==2):
+    resultado = num1 - num2
+    nomeOperacao = "Subtração"
+    return resultado, nomeOperacao
+  elif(op ==3):
+    resultado = num1 * num2
+    nomeOperacao = "Multiplicação"
+    return resultado, nomeOperacao
+  elif(op==4):
+    if(num2 != 0):
+      resultado = num1 / num2
+      nomeOperacao = "Divisão"
+      return resultado, nomeOperacao
+    else:
+      raise Exception ("Não é possível fazer divisão por zero.")
+  else:
+    raise Exception ("Essa opção não existe")
+
+def mostrarMenu():
+  print("1. Soma")
+  print("2. Subtração")
+  print("3. Multiplicação")
+  print("4. Divisão")
+  print("0. Sair")
+
+def realizarOperacao(op):
+  # variavel de controle para sair do loop quando o valor digitado não tiver resto 1. Ou seja não for ímpar.
+  restoDivisao = 1
+  ## Segue 2 laços de repetição para assegurar que o usuário digite os dois números pares
+  while restoDivisao == 1:
+    print("Digite o primeiro número: ")
+    ## Vai conferir se o valor digitado é numérico e se não for vai mostrar uma msg na tela.
+    try:
+      num1 = int(input())
+      restoDivisao = num1 % 2
+      if(num1 % 2 == 1):
+        print("Você digitou um número ímpar, por favor digite um número par.")
+    except:
+      print("Caracteres não são aceitos. Só é possível realizar a operação com números.")
+
+  restoDivisao = 1
+  while restoDivisao == 1:
+    try:
+      num2 = int(input("Digite o segundo número: "))
+      restoDivisao = num2 % 2
+      if(num1 % 2 == 1):
+        print("Você digitou um número ímpar, por favor digite um número par.")
+    except:
+      print("Caracteres não são aceitos. Só é possível realizar a operação com números.")
+
+  try:
+    resultado, nomeOperacao = calculadora(num1, num2, op)
+    print(f"O resultado da {nomeOperacao} é {str(resultado)}.")
+    print()
+  except Exception as err:
+    print("Ocorreu um erro")
+    print(err)
+
+while True:
+  mostrarMenu()
+  op = int(input("Digite o número correspondente a operação desejada: "))
+  if(op!=0):
+    realizarOperacao(op)
+  else:
+    break
